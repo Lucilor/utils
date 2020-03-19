@@ -34,40 +34,48 @@ export class Point {
 		return Math.abs(v.x - this.x) <= accuracy && Math.abs(v.y - this.y) <= accuracy;
 	}
 
-	add(v: Point | number): Point {
-		if (typeof v === "number") {
-			return this.add(new Point(v));
+	add(point?: Point): Point;
+	add(x?: number, y?: number): Point;
+	add(x?: Point | number, y?: number): Point {
+		if (x instanceof Point) {
+			this.x += x.x;
+			this.y += x.y;
+			return this;
 		}
-		this.x += v.x;
-		this.y += v.y;
-		return this;
+		return this.add(new Point(x, y));
 	}
 
-	sub(v: Point | number): Point {
-		if (typeof v === "number") {
-			return this.sub(new Point(v));
+	sub(point?: Point): Point;
+	sub(x?: number, y?: number): Point;
+	sub(x?: Point | number, y?: number): Point {
+		if (x instanceof Point) {
+			this.x -= x.x;
+			this.y -= x.y;
+			return this;
 		}
-		this.x -= v.x;
-		this.y -= v.y;
-		return this;
+		return this.sub(new Point(x, y));
 	}
 
-	multiply(v: Point | number): Point {
-		if (typeof v === "number") {
-			return this.multiply(new Point(v));
+	multiply(point?: Point): Point;
+	multiply(x?: number, y?: number): Point;
+	multiply(x?: Point | number, y?: number): Point {
+		if (x instanceof Point) {
+			this.x *= x.x;
+			this.y *= x.y;
+			return this;
 		}
-		this.x *= v.x;
-		this.y *= v.y;
-		return this;
+		return this.multiply(new Point(x, y));
 	}
 
-	divide(v: Point | number): Point {
-		if (typeof v === "number") {
-			return this.divide(new Point(v));
+	divide(point?: Point): Point;
+	divide(x?: number, y?: number): Point;
+	divide(x?: Point | number, y?: number): Point {
+		if (x instanceof Point) {
+			this.x /= x.x;
+			this.y /= x.y;
+			return this;
 		}
-		this.x /= v.x;
-		this.y /= v.y;
-		return this;
+		return this.divide(new Point(x, y));
 	}
 
 	clone() {
