@@ -23,7 +23,7 @@ module.exports = {
 		extensions: [".tsx", ".ts", ".js"]
 	},
 	output: {
-		path: path.resolve(__dirname, "lib"), // 输出目录
+		path: path.resolve(__dirname, "dist"), // 输出目录
 		filename: "[name].js", // 输出文件
 		libraryTarget: "umd", // "var" | "assign" | "this" | "window" | "self" | "global" | "commonjs" | "commonjs2" | "commonjs-module" | "amd" | "amd-require" | "umd" | "umd2" | "jsonp" | "system"
 		// library: "utils", // 库名称

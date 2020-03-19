@@ -1,11 +1,10 @@
 {
 	"name": "@lucilor/utils",
-	"version": "1.0.0",
+	"version": "1.0.4",
 	"description": "utils",
-	"main": "lib/index.js",
-	"module": "lib/index.js",
-	"bundle": "dist/index.js",
-	"types": "lib/src/index.d.ts",
+	"main": "dist/index.js",
+	"module": "dist/index.js",
+	"types": "dist/src/index.d.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"build": "webpack --config webpack.config.js"
