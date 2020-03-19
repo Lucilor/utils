@@ -1,0 +1,37 @@
+{
+	"name": "@lucilor/utils",
+	"version": "1.0.0",
+	"description": "utils",
+	"main": "lib/index.js",
+	"module": "lib/index.js",
+	"bundle": "dist/index.js",
+	"types": "lib/src/index.d.ts",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack --config webpack.config.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Lucilor/utils.git"
+	},
+	"keywords": [
+		"utils"
+	],
+	"author": "lucilor <lucilor@me.com>",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Lucilor/utils/issues"
+	},
+	"homepage": "https://github.com/Lucilor/utils#readme",
+	"devDependencies": {
+		"eslint": "^6.8.0",
+		"terser-webpack-plugin": "^2.3.5",
+		"ts-loader": "^6.2.1",
+		"tslint": "^6.1.0",
+		"typescript": "^3.8.3",
+		"webpack": "^4.42.0",
+		"webpack-cli": "^3.3.11",
+		"webpack-node-externals": "^1.7.2"
+	},
+	"dependencies": {}
+}
