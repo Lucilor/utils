@@ -5,5 +5,6 @@ import {Arc} from "./arc";
 import {Angle} from "./angle";
 import {RGB2Index, index2RGB} from "./color";
 import {dataURLtoBlob, RSAEncrypt} from "./misc";
+import {SessionStorage, LocalStorage} from "./storage";
 
-export {Point, Line, Rectangle, Angle, Arc, dataURLtoBlob, RSAEncrypt, RGB2Index, index2RGB};
+export {Point, Line, Rectangle, Angle, Arc, dataURLtoBlob, RSAEncrypt, RGB2Index, index2RGB, SessionStorage, LocalStorage};
