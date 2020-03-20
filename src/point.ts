@@ -107,15 +107,15 @@ export class Point {
 		return [this.x, this.y];
 	}
 
-	// distance(to: Point | Line) {
-	// 	const {x, y} = this;
-	// 	if (to instanceof Point) {
-	// 		return Math.sqrt((x - to.x) ** 2 + (y - to.y) ** 2);
-	// 	}
-	// 	// tslint:disable-next-line: no-use-before-declare
-	// 	if (to instanceof Line) {
-	// 		const {a, b, c} = to.expression;
-	// 		return Math.abs((a * x + b * y + c) / Math.sqrt(a ** 2 + b ** 2));
-	// 	}
-	// }
+	distance(to: Point) {
+		const {x, y} = this;
+		if (to instanceof Point) {
+			return Math.sqrt((x - to.x) ** 2 + (y - to.y) ** 2);
+		}
+		// tslint:disable-next-line: no-use-before-declare
+		// if (to instanceof Line) {
+		// 	const {a, b, c} = to.expression;
+		// 	return Math.abs((a * x + b * y + c) / Math.sqrt(a ** 2 + b ** 2));
+		// }
+	}
 }
