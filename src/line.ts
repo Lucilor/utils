@@ -79,6 +79,12 @@ export class Line {
 		return this.start.equals(line.start) && this.end.equals(line.end);
 	}
 
+	flip(vertical = false, horizontal = false, anchor = new Point(0)) {
+		this.start.flip(vertical, horizontal, anchor);
+		this.end.flip(vertical, horizontal, anchor);
+		return this;
+	}
+
 	rotate(angle: number, anchor = new Point(0)) {
 		this.start.rotate(angle, anchor);
 		this.end.rotate(angle, anchor);
