@@ -1,6 +1,6 @@
 {
 	"name": "@lucilor/utils",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "utils",
 	"main": "dist/index.js",
 	"module": "dist/index.js",
@@ -17,7 +17,7 @@
 		"utils"
 	],
 	"author": "lucilor <lucilor@me.com>",
-	"license": "ISC",
+	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/Lucilor/utils/issues"
 	},
