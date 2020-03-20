@@ -3,6 +3,7 @@ import {Line} from "./line";
 import {Rectangle} from "./rectangle";
 import {Arc} from "./arc";
 import {Angle} from "./angle";
-import {dataURLtoBlob} from "./misc";
+import {RGB2Index, index2RGB} from "./color";
+import {dataURLtoBlob, RSAEncrypt} from "./misc";
 
-export {Point, Line, Rectangle, Angle, Arc, dataURLtoBlob};
+export {Point, Line, Rectangle, Angle, Arc, dataURLtoBlob, RSAEncrypt, RGB2Index, index2RGB};
