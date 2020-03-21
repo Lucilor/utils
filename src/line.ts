@@ -91,13 +91,18 @@ export class Line {
 		return this;
 	}
 
-	distance(to: Line) {
-		if (this.slope !== to.slope) {
-			return NaN;
+	distance(to: Line | Point) {
+		if (to instanceof Line) {
+			if (this.slope !== to.slope) {
+				return NaN;
+			}
+			const exp1 = this.expression;
+			const exp2 = to.expression;
+			return Math.abs(exp1.c - exp2.c) / Math.sqrt(exp1.a ** 2 + exp1.b ** 2);
+		} else {
+			const {a, b, c} = this.expression;
+			return Math.abs((a * to.x + b * to.y + c) / Math.sqrt(a ** 2 + b ** 2));
 		}
-		const exp1 = this.expression;
-		const exp2 = to.expression;
-		return Math.abs(exp1.c - exp2.c) / Math.sqrt(exp1.a ** 2 + exp1.b ** 2);
 	}
 
 	intersect(line: Line, extend = false) {
