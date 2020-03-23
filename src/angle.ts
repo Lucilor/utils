@@ -1,24 +1,24 @@
 export class Angle {
-	value: number;
+	private _value: number;
 	unit: "rad" | "deg";
 
 	constructor(value = 0, unit: "rad" | "deg" = "rad") {
-		this.value = value;
+		this._value = value;
 		this.unit = unit;
 	}
 
-	getRad() {
+	get rad() {
 		if (this.unit === "deg") {
-			return (this.value / 180) * Math.PI;
+			return (this._value / 180) * Math.PI;
 		}
-		return this.value;
+		return this._value;
 	}
 
-	getDeg() {
+	get deg() {
 		if (this.unit === "rad") {
-			return (this.value / Math.PI) * 180;
+			return (this._value / Math.PI) * 180;
 		}
-		return this.value;
+		return this._value;
 	}
 
 	constrain() {
@@ -29,17 +29,17 @@ export class Angle {
 		if (this.unit === "deg") {
 			limit = 360;
 		}
-		while (this.value < 0) {
-			this.value += limit;
+		while (this._value < 0) {
+			this._value += limit;
 		}
-		while (this.value > limit) {
-			this.value -= limit;
+		while (this._value > limit) {
+			this._value -= limit;
 		}
 		return this;
 	}
 
 	set(value = 0, unit: "rad" | "deg" = "rad") {
-		this.value = value;
+		this._value = value;
 		this.unit = unit;
 		return this;
 	}
