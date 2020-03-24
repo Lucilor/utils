@@ -5,66 +5,66 @@ import {Line} from "./line";
 export class Arc {
 	center: Point;
 	radius: number;
-	clockwise = true;
+	clockwise: boolean;
 	private _startAngle: Angle;
 	private _endAngle: Angle;
 	private _startPoint: Point;
 	private _endPoint: Point;
 
-	constructor(center = new Point(), radius?: number, start?: Angle | Point, end?: Angle | Point) {
+	constructor(center = new Point(), radius?: number, start?: Angle | Point, end?: Angle | Point, clockwise = true) {
 		this.center = center;
 		this.radius = radius;
+		this.clockwise = clockwise;
 		if (start instanceof Angle) {
-			this.setStartAngle(start);
+			this.startAngle = start;
 		} else if (start instanceof Point) {
-			this.setStartPoint(start);
+			this.startPoint = start;
 		} else {
-			this.setStartAngle(new Angle(0));
+			this.startAngle = new Angle(0);
 		}
 		if (end instanceof Angle) {
-			this.setEndAngle(end);
-		}
-		if (end instanceof Point) {
-			this.setEndPoint(end);
+			this.endAngle = end;
+		} else if (end instanceof Point) {
+			this.endPoint = end;
 		} else {
-			this.setEndAngle(new Angle(Math.PI / 2));
+			this.endAngle = new Angle(Math.PI * 2);
 		}
 	}
 
-	getStartAngle() {
+	get startAngle() {
 		return this._startAngle;
 	}
 
-	setStartAngle(angle: Angle) {
+	set startAngle(angle: Angle) {
 		this._startAngle = angle;
 		const d = new Point(Math.cos(this._startAngle.rad), Math.sin(this._startAngle.rad)).multiply(this.radius);
 		this._startPoint = this.center.clone().add(d);
 	}
 
-	getEndAngle() {
+	get endAngle() {
 		return this._endAngle;
 	}
 
-	setEndAngle(angle: Angle) {
+	set endAngle(angle: Angle) {
 		this._endAngle = angle;
 		const d = new Point(Math.cos(this._endAngle.rad), Math.sin(this._endAngle.rad)).multiply(this.radius);
 		this._endPoint = this.center.clone().add(d);
 	}
 
-	getStartPoint() {
+	get startPoint() {
 		return this._startPoint;
 	}
 
-	setStartPoint(value: Point) {
+	set startPoint(value: Point) {
 		this._startPoint = value;
 		this._startAngle.set(new Line(this.center, this._startPoint).theta, "rad");
 	}
 
-	getEndPoint() {
+	get endPoint() {
 		return this._endPoint;
 	}
 
-	setEndPoint(value: Point) {
+	set endPoint(value: Point) {
 		this._endPoint = value;
 		this._endAngle.set(new Line(this.center, this._endPoint).theta, "rad");
 	}
@@ -81,9 +81,9 @@ export class Arc {
 	}
 
 	flip(vertical = false, horizontal = false, anchor = new Point()) {
-		this.center.flip(vertical, horizontal);
-		this.setStartPoint(this.getStartPoint().flip(vertical, horizontal, anchor));
-		this.setEndPoint(this.getEndPoint().flip(vertical, horizontal, anchor));
+		this.center.flip(vertical, horizontal, anchor);
+		this.startPoint = this.startPoint.flip(vertical, horizontal, anchor);
+		this.endPoint = this.endPoint.flip(vertical, horizontal, anchor);
 		if (vertical !== horizontal) {
 			this.clockwise = !this.clockwise;
 		}
@@ -92,8 +92,8 @@ export class Arc {
 
 	rotate(angle: number, anchor = new Point(0)) {
 		this.center.rotate(angle, anchor);
-		this.setStartPoint(this.getStartPoint().rotate(angle, anchor));
-		this.setEndPoint(this.getEndPoint().rotate(angle, anchor));
+		this.startPoint = this.startPoint.rotate(angle, anchor);
+		this.endPoint = this.endPoint.rotate(angle, anchor);
 		return this;
 	}
 }
