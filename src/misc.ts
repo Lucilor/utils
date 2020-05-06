@@ -15,7 +15,7 @@ export function RSAEncrypt(data: any, publicKey = defaultPublicKey, separator = 
 	const jsEncrypt = new JSEncrypt();
 	jsEncrypt.setPublicKey(publicKey);
 	let plainText = JSON.stringify(data);
-	const limit = 127;
+	const limit = 63;
 	const result = [];
 	while (plainText.length > 0) {
 		result.push(jsEncrypt.encrypt(plainText.slice(0, limit)));
