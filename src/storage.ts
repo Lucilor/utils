@@ -20,26 +20,22 @@ class CustomStorage {
 		this.storage.setItem(this._field, JSON.stringify(data));
 	}
 
-	load(key: string, isObject = false) {
+	load(key: string) {
 		let data = null;
 		try {
 			data = JSON.parse(this.storage.getItem(this._field));
 		} catch (error) {
-			return isObject ? null : "";
+			return null;
 		}
 		if (data && data[key]) {
-			const result = data[key];
-			if (isObject) {
-				try {
-					return JSON.parse(result);
-				} catch (error) {
-					console.warn(`JSON parse error: loading from storage: ${result}.`);
-					return null;
-				}
+			try {
+				return JSON.parse(data[key]);
+			} catch (error) {
+				console.warn(`JSON parse error: loading from storage: ${data[key]}.`);
+				return null;
 			}
-			return result;
 		}
-		return "";
+		return null;
 	}
 
 	remove(key: string) {
