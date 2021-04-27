@@ -50,18 +50,6 @@ export const getDPI = () => {
     return result;
 };
 
-export const copyToClipboard = (str: string) => {
-    const el = document.createElement("textarea");
-    el.value = str;
-    el.setAttribute("readonly", "");
-    el.style.position = "absolute";
-    el.style.opacity = "0";
-    document.body.appendChild(el);
-    el.select();
-    document.execCommand("copy");
-    document.body.removeChild(el);
-};
-
 export const downloadByString = (content: string, filename: string) => {
     const blob = new Blob([content]);
     const url = URL.createObjectURL(blob);
