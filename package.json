@@ -1,6 +1,6 @@
 {
 	"name": "@lucilor/utils",
-	"version": "1.5.1",
+	"version": "1.5.2",
 	"description": "utils",
 	"main": "lib/index.js",
 	"module": "lib/index.js",
@@ -9,7 +9,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"lib": "webpack --config webpack.lib.js",
 		"dist": "webpack --config webpack.dist.js",
-		"build": "npm run lib && npm run dist"
+		"build": "webpack --config webpack.lib.js && webpack --config webpack.dist.js"
 	},
 	"repository": {
 		"type": "git",
