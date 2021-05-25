@@ -68,3 +68,14 @@ export const downloadByUrl = (url: string, filename = "") => {
 };
 
 export const timeout = <T>(time = 0, value?: T) => new Promise<T | undefined>((resolve) => setTimeout(() => resolve(value), time));
+
+export const loadImage = (src: string, crossOrigin?: boolean) =>
+    new Promise<HTMLImageElement>((resolve, reject) => {
+        const img = new Image();
+        if (crossOrigin) {
+            img.crossOrigin = "anonymous";
+        }
+        img.src = src;
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+    });
