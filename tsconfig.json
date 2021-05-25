@@ -1,15 +1,16 @@
 {
-	"compilerOptions": {
-		"outDir": "./lib/",
-		"sourceMap": true,
-		// "noImplicitAny": true,
-		"module": "commonjs",
-		"target": "es5",
-		"jsx": "react",
-		"allowJs": true,
-		"allowSyntheticDefaultImports": true,
-		"declaration": true,
-		"lib": ["ES2019", "DOM"],
-		"esModuleInterop": true
-	}
+    "compilerOptions": {
+        "baseUrl": "./",
+        "outDir": "./lib/",
+        "sourceMap": true,
+        "strict": true,
+        "module": "commonjs",
+        "target": "es5",
+        "jsx": "react",
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "declaration": true,
+        "lib": ["ES2020", "DOM"],
+        "esModuleInterop": true
+    }
 }
