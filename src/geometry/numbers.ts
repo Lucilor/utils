@@ -2,8 +2,6 @@ export const DEFAULT_TOLERANCE = 0.001;
 
 export const isNearZero = (n: number, tolerance = DEFAULT_TOLERANCE) => Math.abs(n) <= tolerance;
 
-export const isEqual = (a: number, b: number, tolerance = DEFAULT_TOLERANCE) => isNearZero(a - b, tolerance);
-
 export const approachZero = (n: number) => {
     if (isNearZero(n)) {
         return 0;

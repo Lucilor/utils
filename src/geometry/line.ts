@@ -1,5 +1,5 @@
 import {Point} from "./point";
-import {DEFAULT_TOLERANCE, isBetween, isEqual} from "./numbers";
+import {DEFAULT_TOLERANCE, isBetween, isNearZero} from "./numbers";
 import {Angle} from "./angle";
 import {ObjectOf} from "../types";
 
@@ -32,7 +32,7 @@ export class Line {
             const {x: x2, y: y2} = this.end;
             const {x, y} = object;
             const withinLine = extend || (isBetween(x, x1, x2, true, tolerance) && isBetween(y, y1, y2, true, tolerance));
-            if (isEqual((x - x1) * (y2 - y1), (x2 - x1) * (y - y1), tolerance) && withinLine) {
+            if (isNearZero((x - x1) * (y2 - y1) - (x2 - x1) * (y - y1), tolerance) && withinLine) {
                 return true;
             } else {
                 return false;
@@ -105,7 +105,7 @@ export class Line {
         if (!isFinite(slope1) && !isFinite(slope2)) {
             return true;
         }
-        return isEqual(this.slope, line.slope, tolerance);
+        return isNearZero(this.slope - line.slope, tolerance);
     }
 
     flip(vertical = false, horizontal = false, anchor = new Point(0)) {
