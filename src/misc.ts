@@ -50,23 +50,6 @@ export const getDPI = () => {
     return result;
 };
 
-export const downloadByString = (content: string, filename: string) => {
-    const blob = new Blob([content]);
-    const url = URL.createObjectURL(blob);
-    downloadByUrl(url, filename);
-    URL.revokeObjectURL(url);
-};
-
-export const downloadByUrl = (url: string, filename = "") => {
-    const link = document.createElement("a");
-    link.download = filename;
-    link.style.display = "none";
-    link.href = url;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-};
-
 export const timeout = <T>(time = 0, value?: T) => new Promise<T | undefined>((resolve) => setTimeout(() => resolve(value), time));
 
 export const loadImage = (src: string, crossOrigin?: boolean) =>
