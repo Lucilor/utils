@@ -15,7 +15,7 @@ class CustomStorage {
         this._field = field;
     }
 
-    save(key: string, value: any) {
+    save<T = any>(key: string, value: T) {
         let data: ObjectOf<any> = {};
         try {
             data = JSON.parse(this.storage.getItem(this._field) || "{}");
@@ -24,7 +24,7 @@ class CustomStorage {
         this.storage.setItem(this._field, JSON.stringify(data));
     }
 
-    load(key: string) {
+    load<T = any>(key: string): T | null {
         let data = null;
         try {
             data = JSON.parse(this.storage.getItem(this._field) || "null");
