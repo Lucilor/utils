@@ -167,6 +167,6 @@ export class Matrix {
         if (this.a !== this.d || this.b !== -this.c) {
             return 0;
         }
-        return Math.acos(this.a);
+        return Math.asin(this.b);
     }
 }

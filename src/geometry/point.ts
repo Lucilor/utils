@@ -96,27 +96,6 @@ export class Point {
         return this.set(point.x, point.y);
     }
 
-    flip(vertical = false, horizontal = false, anchor = new Point(0)) {
-        const dx = anchor.x - this.x;
-        const dy = anchor.y - this.y;
-        if (vertical === true) {
-            this.y += dy * 2;
-        }
-        if (horizontal === true) {
-            this.x += dx * 2;
-        }
-        return this;
-    }
-
-    rotate(angle: number, anchor = new Point(0)) {
-        const {x: x1, y: y1} = anchor;
-        const {x: x2, y: y2} = this;
-        const theta = Math.atan2(y2 - y1, x2 - x1) + angle;
-        const length = Math.hypot(x1 - x2, y1 - y2);
-        const d = new Point(Math.cos(theta), Math.sin(theta)).multiply(length);
-        return this.set(anchor.x + d.x, anchor.y + d.y);
-    }
-
     toArray(): [number, number] {
         return [this.x, this.y];
     }
@@ -136,17 +115,21 @@ export class Point {
 
     transform(matrix: MatrixLike) {
         matrix = new Matrix(matrix);
-        const {a, d, e, f, origin} = matrix;
+        const {a, d, e, f} = matrix;
         const angle = matrix.rotate();
-        const anchor = new Point(origin);
+        const origin = new Point(matrix.origin);
         if (angle) {
-            this.rotate(angle, anchor);
-            this.x += e;
-            this.y += f;
+            const {x: x1, y: y1} = origin;
+            const {x: x2, y: y2} = this;
+            const theta = Math.atan2(y2 - y1, x2 - x1) + angle;
+            const length = Math.hypot(x1 - x2, y1 - y2);
+            const offset = new Point(Math.cos(theta), Math.sin(theta)).multiply(length);
+            this.x = origin.x + offset.x + e;
+            this.y = origin.y + offset.y + f;
         } else {
-            const distance = this.clone().sub(anchor).multiply(a, d);
-            this.x = anchor.x + distance.x + e;
-            this.y = anchor.y + distance.y + f;
+            const distance = this.clone().sub(origin).multiply(a, d);
+            this.x = origin.x + distance.x + e;
+            this.y = origin.y + distance.y + f;
         }
         return this;
     }

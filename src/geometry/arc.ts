@@ -1,7 +1,7 @@
 import {Point} from "./point";
 import {Angle} from "./angle";
 import {Line} from "./line";
-import {MatrixLike} from "./matrix";
+import {Matrix, MatrixLike} from "./matrix";
 
 export class Arc {
     center: Point;
@@ -79,23 +79,6 @@ export class Arc {
         return this.radius * this.totalAngle.rad;
     }
 
-    flip(vertical = false, horizontal = false, anchor = new Point()) {
-        this.center.flip(vertical, horizontal, anchor);
-        this.startPoint = this.startPoint.flip(vertical, horizontal, anchor);
-        this.endPoint = this.endPoint.flip(vertical, horizontal, anchor);
-        if (vertical !== horizontal) {
-            this.clockwise = !this.clockwise;
-        }
-        return this;
-    }
-
-    rotate(angle: number, anchor = new Point(0)) {
-        this.center.rotate(angle, anchor);
-        this.startPoint = this.startPoint.rotate(angle, anchor);
-        this.endPoint = this.endPoint.rotate(angle, anchor);
-        return this;
-    }
-
     equals(arc: Arc) {
         return (
             this.center.equals(arc.center) &&
@@ -114,11 +97,19 @@ export class Arc {
     }
 
     transform(matrix: MatrixLike) {
+        matrix = new Matrix(matrix);
         const start = this.getPoint(0).transform(matrix);
         const end = this.getPoint(1).transform(matrix);
         this.center.transform(matrix);
         this.startPoint = start;
         this.endPoint = end;
         this.radius = this.center.distanceTo(start);
+
+        const scale = matrix.scale();
+        if (scale[0] * scale[1] < -1) {
+            this.clockwise = !this.clockwise;
+        }
+
+        return this;
     }
 }

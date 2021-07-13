@@ -2,6 +2,7 @@ import {Point} from "./point";
 import {DEFAULT_TOLERANCE, isBetween, isNearZero} from "./numbers";
 import {Angle} from "./angle";
 import {ObjectOf} from "../types";
+import {MatrixLike} from "./matrix";
 
 export class Line {
     start: Point;
@@ -108,15 +109,9 @@ export class Line {
         return isNearZero(this.slope - line.slope, tolerance);
     }
 
-    flip(vertical = false, horizontal = false, anchor = new Point(0)) {
-        this.start.flip(vertical, horizontal, anchor);
-        this.end.flip(vertical, horizontal, anchor);
-        return this;
-    }
-
-    rotate(angle: number, anchor = new Point(0)) {
-        this.start.rotate(angle, anchor);
-        this.end.rotate(angle, anchor);
+    transform(matrix: MatrixLike) {
+        this.start.transform(matrix);
+        this.end.transform(matrix);
         return this;
     }
 
