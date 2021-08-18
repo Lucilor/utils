@@ -10,17 +10,29 @@ export class Angle {
     }
 
     get rad() {
-        if (this.unit === "deg") {
+        if (this.unit !== "rad") {
             return (this._value / 180) * Math.PI;
         }
         return this._value;
     }
+    set rad(value) {
+        if (this.unit !== "rad") {
+            value = (value / Math.PI) * 180;
+        }
+        this._value = value;
+    }
 
     get deg() {
-        if (this.unit === "rad") {
+        if (this.unit !== "deg") {
             return (this._value / Math.PI) * 180;
         }
         return this._value;
+    }
+    set deg(value) {
+        if (this.unit !== "rad") {
+            value = (value / 180) * Math.PI;
+        }
+        this._value = value;
     }
 
     constrain() {

@@ -1,7 +1,6 @@
 import {Point} from "./point";
 import {DEFAULT_TOLERANCE, isBetween, isNearZero} from "./numbers";
 import {Angle} from "./angle";
-import {ObjectOf} from "../types";
 import {MatrixLike} from "./matrix";
 
 export class Line {
@@ -45,9 +44,7 @@ export class Line {
     }
 
     get length() {
-        const {x: x1, y: y1} = this.start;
-        const {x: x2, y: y2} = this.end;
-        return Math.sqrt((x1 - x2) ** 2 + (y1 - y2) ** 2);
+        return this.start.distanceTo(this.end);
     }
 
     get middle() {
@@ -73,7 +70,7 @@ export class Line {
 
     get expression() {
         const slope = this.slope;
-        const result: ObjectOf<number> = {a: 0, b: 0, c: 0};
+        const result = {a: 0, b: 0, c: 0};
         if (isFinite(slope)) {
             result.a = slope;
             result.b = -1;
@@ -84,7 +81,7 @@ export class Line {
         }
         let count = 0;
         for (const k in result) {
-            if (result[k] < 0) {
+            if (result[k as keyof typeof result] < 0) {
                 count++;
             }
         }
@@ -106,7 +103,7 @@ export class Line {
         if (!isFinite(slope1) && !isFinite(slope2)) {
             return true;
         }
-        return isNearZero(this.slope - line.slope, tolerance);
+        return isNearZero(slope1 - slope2, tolerance);
     }
 
     transform(matrix: MatrixLike) {

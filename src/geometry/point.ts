@@ -118,19 +118,17 @@ export class Point {
         const {a, d, e, f} = matrix;
         const angle = matrix.rotate();
         const origin = new Point(matrix.origin);
+        let offset: Point;
         if (angle) {
             const {x: x1, y: y1} = origin;
             const {x: x2, y: y2} = this;
             const theta = Math.atan2(y2 - y1, x2 - x1) + angle;
-            const length = Math.hypot(x1 - x2, y1 - y2);
-            const offset = new Point(Math.cos(theta), Math.sin(theta)).multiply(length);
-            this.x = origin.x + offset.x + e;
-            this.y = origin.y + offset.y + f;
+            const length = this.distanceTo(origin);
+            offset = new Point(Math.cos(theta), Math.sin(theta)).multiply(length);
         } else {
-            const distance = this.clone().sub(origin).multiply(a, d);
-            this.x = origin.x + distance.x + e;
-            this.y = origin.y + distance.y + f;
+            offset = this.clone().sub(origin).multiply(a, d);
         }
+        this.copy(origin.add(offset).add(e, f));
         return this;
     }
 

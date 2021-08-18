@@ -37,14 +37,14 @@ export class Arc {
         return this.center.clone().add(d);
     }
     set startPoint(value: Point) {
-        this.startAngle = new Line(this.center, value).theta;
+        this.startAngle.rad = new Line(this.center, value).theta.rad;
     }
     get endPoint() {
         const d = new Point(Math.cos(this.endAngle.rad), Math.sin(this.endAngle.rad)).multiply(this.radius);
         return this.center.clone().add(d);
     }
     set endPoint(value: Point) {
-        this.endAngle = new Line(this.center, value).theta;
+        this.endAngle.rad = new Line(this.center, value).theta.rad;
     }
     get totalAngle() {
         const {startAngle, endAngle, clockwise} = this;
