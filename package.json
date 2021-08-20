@@ -41,5 +41,6 @@
 	"dependencies": {
 		"color": "^4.0.0",
 		"jsencrypt": "^3.2.0"
-	}
+	},
+	"packageManager": "yarn@3.0.1"
 }
