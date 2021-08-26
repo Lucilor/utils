@@ -32,11 +32,7 @@ export class Line {
             const {x: x2, y: y2} = this.end;
             const {x, y} = object;
             const withinLine = extend || (isBetween(x, x1, x2, true, tolerance) && isBetween(y, y1, y2, true, tolerance));
-            if (isNearZero((x - x1) * (y2 - y1) - (x2 - x1) * (y - y1), tolerance) && withinLine) {
-                return true;
-            } else {
-                return false;
-            }
+            return isNearZero((x - x1) * (y2 - y1) - (x2 - x1) * (y - y1), tolerance) && withinLine;
         } else if (object instanceof Line) {
             return this.contains(object.start, extend, tolerance) && this.contains(object.end, extend, tolerance);
         }

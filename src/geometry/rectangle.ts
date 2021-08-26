@@ -72,6 +72,7 @@ export class Rectangle {
         this.min.y = Math.min(this.min.y, y);
         this.max.x = Math.max(this.max.x, x);
         this.max.y = Math.max(this.max.y, y);
+        return this;
     }
 
     contains(object: Point | Line | Rectangle): boolean {
