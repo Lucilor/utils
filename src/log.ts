@@ -1,6 +1,6 @@
 import {keysOf, ObjectOf} from "./types";
 
-export const log = (msg: string, type?: string, styles: Partial<CSSStyleDeclaration> = {}) => {
+export const log = (msg: string, type?: string, styles: Partial<CSSStyleDeclaration> = {}, ...others: any[]) => {
     if (typeof type === "string" && type) {
         type = `[${type}] `;
     } else {
@@ -14,9 +14,9 @@ export const log = (msg: string, type?: string, styles: Partial<CSSStyleDeclarat
         if (!msg2.includes("%c")) {
             msg2 = "%c" + msg2;
         }
-        console.log(msg2, cssText);
+        console.log(msg2, cssText, ...others);
     } else {
-        console.log(msg2);
+        console.log(msg2, ...others);
     }
 };
 
