@@ -106,7 +106,8 @@ export class Arc {
         this.radius = this.center.distanceTo(start);
 
         const scale = matrix.scale();
-        if (scale[0] * scale[1] < -1) {
+        console.log(scale);
+        if (scale[0] * scale[1] < 0) {
             this.clockwise = !this.clockwise;
         }
 
