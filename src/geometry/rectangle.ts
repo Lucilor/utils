@@ -1,5 +1,6 @@
 import {Point} from "./point";
 import {Line} from "./line";
+import {MatrixLike} from "./matrix";
 
 export class Rectangle {
     min: Point;
@@ -10,6 +11,9 @@ export class Rectangle {
     }
     get height() {
         return this.max.y - this.min.y;
+    }
+    get area() {
+        return this.width * this.height;
     }
     get top() {
         return this.max.y;
@@ -94,6 +98,12 @@ export class Rectangle {
 
     equals(rect: Rectangle) {
         return this.min.equals(rect.min) && this.max.equals(rect.max);
+    }
+
+    transform(matrix: MatrixLike) {
+        this.min.transform(matrix);
+        this.max.transform(matrix);
+        return this;
     }
 
     // TODO: intersects
