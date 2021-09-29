@@ -1,7 +1,7 @@
 import JSEncrypt from "jsencrypt";
 
 export class RSA {
-    static encrypt(data: any, publicKey: string, separator = "&&&&&") {
+    static encrypt<T>(data: T, publicKey: string, separator = "&&&&&") {
         const jsEncrypt = new JSEncrypt();
         jsEncrypt.setPublicKey(publicKey);
         let plainText = JSON.stringify(data);
@@ -17,7 +17,7 @@ export class RSA {
         return encodeURIComponent(result.join(separator));
     }
 
-    static decrypt(text: string, privateKey: string, separator = "&&&&&") {
+    static decrypt<T>(text: string, privateKey: string, separator = "&&&&&") {
         const jsEncrypt = new JSEncrypt();
         jsEncrypt.setPrivateKey(privateKey);
         const texts = decodeURIComponent(text).split(separator);
@@ -25,6 +25,11 @@ export class RSA {
         texts.forEach((v) => {
             str += jsEncrypt.decrypt(v) || "";
         });
-        return JSON.parse(str);
+        try {
+            return JSON.parse(str) as T;
+        } catch (error) {
+            console.warn(`JSON parse error: ${str}.`);
+            return null;
+        }
     }
 }
