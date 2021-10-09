@@ -1,6 +1,6 @@
 {
 	"name": "@lucilor/utils",
-	"version": "1.10.3",
+	"version": "1.11.0",
 	"description": "utils",
 	"main": "lib/index.js",
 	"module": "lib/index.js",
@@ -41,6 +41,7 @@
 	},
 	"dependencies": {
 		"color": "^4.0.1",
+		"expr-eval": "^2.0.2",
 		"jsencrypt": "^3.2.1"
 	}
 }
