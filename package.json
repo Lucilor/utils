@@ -27,6 +27,8 @@
 	"homepage": "https://github.com/Lucilor/utils#readme",
 	"devDependencies": {
 		"@types/color": "^3.0.2",
+		"@types/lodash": "^4.14.176",
+		"@types/md5": "^2.3.1",
 		"@typescript-eslint/eslint-plugin": "^4.32.0",
 		"@typescript-eslint/parser": "^4.32.0",
 		"clean-webpack-plugin": "^4.0.0",
@@ -42,6 +44,8 @@
 	"dependencies": {
 		"color": "^4.0.1",
 		"expr-eval": "^2.0.2",
-		"jsencrypt": "^3.2.1"
+		"jsencrypt": "^3.2.1",
+		"lodash": "^4.17.21",
+		"md5": "^2.3.0"
 	}
 }
