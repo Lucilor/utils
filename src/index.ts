@@ -1,4 +1,3 @@
-export * from "./color";
 export * from "./files";
 export * from "./geometry";
 export * from "./list-random";
