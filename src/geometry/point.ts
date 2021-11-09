@@ -2,13 +2,15 @@ import {Line} from "..";
 import {DEFAULT_TOLERANCE} from "./numbers";
 import {Matrix, MatrixLike} from "./matrix";
 
+export type PointLike = number | number[] | {x: number; y: number};
+
 export class Point {
     x: number;
     y: number;
 
     constructor(x?: number, y?: number);
-    constructor(xy: number[] | {x: number; y: number});
-    constructor(x: number | number[] | {x: number; y: number} = 0, y?: number) {
+    constructor(xy: PointLike);
+    constructor(x: PointLike = 0, y?: number) {
         if (Array.isArray(x)) {
             this.x = x[0];
             this.y = x[1];
@@ -23,17 +25,15 @@ export class Point {
         }
     }
 
-    set(x?: number, y?: number): Point;
-    set(point: Point): Point;
-    set(x: number | Point = 0, y = x) {
-        if (typeof x === "number") {
-            this.x = x;
-            this.y = y as number;
-        } else {
-            this.x = x.x;
-            this.y = x.y;
-        }
+    set(x: number, y = x) {
+        this.x = x;
+        this.y = y;
         return this;
+    }
+
+    copy(point: PointLike) {
+        const {x, y} = new Point(point);
+        return this.set(x, y);
     }
 
     equals(point: Point, tolerance = DEFAULT_TOLERANCE) {
@@ -87,13 +87,6 @@ export class Point {
 
     clone() {
         return new Point(this.x, this.y);
-    }
-
-    copy(point?: Point | null) {
-        if (!point) {
-            return this;
-        }
-        return this.set(point.x, point.y);
     }
 
     toArray(): [number, number] {

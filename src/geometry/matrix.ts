@@ -1,4 +1,4 @@
-export type PointLike = number | number[] | {x: number; y: number};
+import {PointLike} from "./point";
 
 export interface MatrixParams {
     a: number;

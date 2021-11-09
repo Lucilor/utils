@@ -1,10 +1,22 @@
-import {Point} from "./point";
+import {Point, PointLike} from "./point";
 import {Line} from "./line";
 import {MatrixLike} from "./matrix";
 
+export type RectLike = {min: PointLike; max: PointLike};
+
 export class Rectangle {
-    min: Point;
-    max: Point;
+    static min = new Rectangle([Infinity, Infinity], [-Infinity, -Infinity]);
+    static max = new Rectangle([-Infinity, -Infinity], [Infinity, Infinity]);
+    static fromPoints(points: PointLike[]) {
+        const rect = Rectangle.min;
+        for (const point of points) {
+            rect.expandByPoint(point);
+        }
+        return rect;
+    }
+
+    min = new Point();
+    max = new Point();
 
     get width() {
         return this.max.x - this.min.x;
@@ -46,9 +58,8 @@ export class Rectangle {
         return (this.min.y + this.max.y) / 2;
     }
 
-    constructor(min = new Point(), max = new Point()) {
-        this.min = min;
-        this.max = max;
+    constructor(min: PointLike = 0, max: PointLike = 0) {
+        this.set(min, max);
     }
 
     justify() {
@@ -70,12 +81,25 @@ export class Rectangle {
         this.max.copy(rect.max);
     }
 
-    expand(point: Point) {
-        const {x, y} = point;
+    set(min: PointLike, max: PointLike) {
+        this.min.copy(min);
+        this.max.copy(max);
+        return this;
+    }
+
+    expandByPoint(point: PointLike) {
+        const {x, y} = new Point(point);
         this.min.x = Math.min(this.min.x, x);
         this.min.y = Math.min(this.min.y, y);
         this.max.x = Math.max(this.max.x, x);
         this.max.y = Math.max(this.max.y, y);
+        return this;
+    }
+
+    expandByRect(rect: RectLike) {
+        const {min, max} = new Rectangle(rect.min, rect.max);
+        this.expandByPoint(min);
+        this.expandByPoint(max);
         return this;
     }
 
