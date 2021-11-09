@@ -5,8 +5,12 @@ import {MatrixLike} from "./matrix";
 export type RectLike = {min: PointLike; max: PointLike};
 
 export class Rectangle {
-    static min = new Rectangle([Infinity, Infinity], [-Infinity, -Infinity]);
-    static max = new Rectangle([-Infinity, -Infinity], [Infinity, Infinity]);
+    static get min() {
+        return new Rectangle([Infinity, Infinity], [-Infinity, -Infinity]);
+    }
+    static get max() {
+        return new Rectangle([-Infinity, -Infinity], [Infinity, Infinity]);
+    }
     static fromPoints(points: PointLike[]) {
         const rect = Rectangle.min;
         for (const point of points) {
@@ -98,8 +102,10 @@ export class Rectangle {
 
     expandByRect(rect: RectLike) {
         const {min, max} = new Rectangle(rect.min, rect.max);
-        this.expandByPoint(min);
-        this.expandByPoint(max);
+        this.min.x = Math.min(this.min.x, min.x);
+        this.min.y = Math.min(this.min.y, min.y);
+        this.max.x = Math.max(this.max.x, max.x);
+        this.max.y = Math.max(this.max.y, max.y);
         return this;
     }
 
