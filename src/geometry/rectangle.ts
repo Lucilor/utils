@@ -61,6 +61,9 @@ export class Rectangle {
     get y() {
         return (this.min.y + this.max.y) / 2;
     }
+    get isFinite() {
+        return this.min.isFinite && this.max.isFinite;
+    }
 
     constructor(min: PointLike = 0, max: PointLike = 0) {
         this.set(min, max);

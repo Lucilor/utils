@@ -7,6 +7,9 @@ export type PointLike = number | number[] | {x: number; y: number};
 export class Point {
     x: number;
     y: number;
+    get isFinite() {
+        return isFinite(this.x) && isFinite(this.y);
+    }
 
     constructor(x?: number, y?: number);
     constructor(xy: PointLike);

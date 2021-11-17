@@ -9,6 +9,16 @@ export class Arc {
     clockwise: boolean;
     startAngle: Angle;
     endAngle: Angle;
+    get isFinite() {
+        return (
+            this.center.isFinite &&
+            this.startPoint.isFinite &&
+            this.endPoint.isFinite &&
+            isFinite(this.radius) &&
+            this.startAngle.isFinite &&
+            this.endAngle.isFinite
+        );
+    }
 
     constructor(center = new Point(), radius?: number, start?: Angle | Point, end?: Angle | Point, clockwise = true) {
         this.center = center;

@@ -3,6 +3,9 @@ import {DEFAULT_TOLERANCE} from "./numbers";
 export class Angle {
     private _value: number;
     unit: "rad" | "deg";
+    get isFinite() {
+        return isFinite(this._value);
+    }
 
     constructor(value = 0, unit: "rad" | "deg" = "rad") {
         this._value = value;

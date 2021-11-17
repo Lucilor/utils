@@ -6,6 +6,9 @@ import {MatrixLike} from "./matrix";
 export class Line {
     start: Point;
     end: Point;
+    get isFinite() {
+        return this.start.isFinite && this.end.isFinite;
+    }
 
     constructor(start: Point, end = start) {
         this.start = start;
