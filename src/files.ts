@@ -1,13 +1,21 @@
-export const downloadByString = (content: string, filename: string) => {
-    const blob = new Blob([content]);
+export interface DownloadOptions {
+    filename?: string;
+}
+
+export const downloadByString = (content: string, options?: DownloadOptions) => {
+    downloadByBlob(new Blob([content]), options);
+};
+
+export const downloadByBlob = (blob: Blob, options?: DownloadOptions) => {
     const url = URL.createObjectURL(blob);
-    downloadByUrl(url, filename);
+    downloadByUrl(url, options);
     URL.revokeObjectURL(url);
 };
 
-export const downloadByUrl = (url: string, filename = "") => {
+export const downloadByUrl = (url: string, options?: DownloadOptions) => {
+    const {filename} = options || {};
     const link = document.createElement("a");
-    link.download = filename;
+    link.download = filename || "";
     link.style.display = "none";
     link.href = url;
     document.body.appendChild(link);
