@@ -1,3 +1,6 @@
+import {initDate} from "./date";
+
+initDate();
 export * from "./files";
 export * from "./geometry";
 export * from "./list-random";
