@@ -169,4 +169,16 @@ export class Matrix {
         }
         return Math.asin(this.b);
     }
+
+    equals(matrix: MatrixLike) {
+        matrix = new Matrix(matrix);
+        return (
+            this.a === matrix.a &&
+            this.b === matrix.b &&
+            this.c === matrix.c &&
+            this.d === matrix.d &&
+            this.e === matrix.e &&
+            this.f === matrix.f
+        );
+    }
 }

@@ -1,7 +1,7 @@
 export const dataURLtoBlob = (dataURL: string) => {
     const arr = dataURL.split(",");
     const mime = arr[0].match(/:(.*?);/)?.[1];
-    const bstr = atob(arr[1]);
+    const bstr = window.atob(arr[1]);
     let n = bstr.length;
     const u8arr = new Uint8Array(n);
     while (n--) {
@@ -22,14 +22,3 @@ export const getDPI = () => {
 };
 
 export const timeout = <T>(time = 0, value?: T) => new Promise<T | undefined>((resolve) => setTimeout(() => resolve(value), time));
-
-export const loadImage = (src: string, crossOrigin?: boolean) =>
-    new Promise<HTMLImageElement>((resolve, reject) => {
-        const img = new Image();
-        if (crossOrigin) {
-            img.crossOrigin = "anonymous";
-        }
-        img.src = src;
-        img.onload = () => resolve(img);
-        img.onerror = reject;
-    });

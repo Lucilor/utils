@@ -11,7 +11,7 @@ export const approachZero = (n: number) => {
 
 export const isBetween = (n: number, min: number, max: number, eq = true, tolerance = DEFAULT_TOLERANCE) => {
     if (min === max) {
-        return eq;
+        return eq ? n === min : false;
     }
     if (min > max) {
         [min, max] = [max, min];
