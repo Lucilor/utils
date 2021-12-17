@@ -23,10 +23,11 @@ export const log = (msg: string, type?: string, styles: Partial<CSSStyleDeclarat
 export class Timer {
     private _pool: ObjectOf<number> = {};
     fractionDigits = 2;
-
     get now() {
         return performance.now();
     }
+
+    constructor(public logStyles?: Partial<CSSStyleDeclaration>) {}
 
     private _getTimeString(name: string) {
         const time = (this.now - this._pool[name]) / 1000;
@@ -37,7 +38,7 @@ export class Timer {
         if (content) {
             content += ": ";
         }
-        log(`${content}${this._getTimeString(name)}`, "Timer", {color: "deeppink"});
+        log(`${content}${this._getTimeString(name)}`, "Timer", this.logStyles);
         return this;
     }
 
