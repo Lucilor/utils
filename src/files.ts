@@ -16,11 +16,10 @@ export const downloadByUrl = (url: string, options?: DownloadOptions) => {
     const {filename} = options || {};
     const link = document.createElement("a");
     link.download = filename || "";
+    link.target = "_blank";
     link.style.display = "none";
     link.href = url;
-    document.body.appendChild(link);
     link.click();
-    document.body.removeChild(link);
 };
 
 export type FileSizeUnit = "B" | "KB" | "MB" | "GB" | "TB" | "PB" | "EB" | "ZB" | "YB";

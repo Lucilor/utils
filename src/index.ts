@@ -1,3 +1,10 @@
+const isNode = typeof process !== "undefined" && process.versions && process.versions.node;
+if (isNode) {
+    // nodejs
+    global.navigator = {appName: "nodejs"} as any;
+    global.window = {} as any;
+}
+
 import {initDate} from "./date";
 
 initDate();
