@@ -5,7 +5,10 @@
 	"main": "lib/index.js",
 	"module": "lib/index.js",
 	"types": "lib/src/index.d.ts",
-	"files": ["lib", "dist"],
+	"files": [
+		"lib",
+		"dist"
+	],
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"lib": "webpack --config webpack.lib.js",
@@ -26,6 +29,7 @@
 		"url": "https://github.com/Lucilor/utils/issues"
 	},
 	"homepage": "https://github.com/Lucilor/utils#readme",
+	"packageManager": "yarn@3.2.0",
 	"devDependencies": {
 		"@types/lodash": "^4.14.179",
 		"@types/md5": "^2.3.2",
