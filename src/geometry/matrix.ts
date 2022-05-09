@@ -121,7 +121,7 @@ export class Matrix {
         return this;
     }
 
-    scale(): number[];
+    scale(): [number, number];
     scale(x: number, y?: number): this;
     scale(x?: number, y = x) {
         if (typeof x !== "number" || typeof y !== "number") {
@@ -132,7 +132,7 @@ export class Matrix {
         return this;
     }
 
-    translate(): number[];
+    translate(): [number, number];
     translate(x: number, y?: number): this;
     translate(x?: number, y = x) {
         if (typeof x !== "number" || typeof y !== "number") {
@@ -143,7 +143,7 @@ export class Matrix {
         return this;
     }
 
-    skew(): number[];
+    skew(): [number, number];
     skew(radX?: number, radY?: number): this;
     skew(radX?: number, radY = radX) {
         if (typeof radX !== "number" || typeof radY !== "number") {
