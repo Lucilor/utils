@@ -139,11 +139,14 @@ export class Rectangle {
         return this;
     }
 
-    // TODO: intersects
-    // intersects(rect: Rectangle) {
-    // 	const min = new Point();
-    // 	const max = new Point();
-    // 	const rect1 = new Rectangle(rect.min.clone(), this.max.clone());
-    // 	return null;
-    // }
+    intersects(rect: Rectangle) {
+        const left = Math.max(this.left, rect.left);
+        const right = Math.min(this.right, rect.right);
+        const top = Math.min(this.top, rect.top);
+        const bottom = Math.max(this.bottom, rect.bottom);
+        if (left <= right && bottom <= top) {
+            return new Rectangle(new Point(left, bottom), new Point(right, top));
+        }
+        return null;
+    }
 }
