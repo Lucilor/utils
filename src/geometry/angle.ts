@@ -6,6 +6,9 @@ export class Angle {
     get isFinite() {
         return isFinite(this._value);
     }
+    get isNaN(){
+        return isNaN(this._value);
+    }
 
     constructor(value = 0, unit: "rad" | "deg" = "rad") {
         this._value = value;

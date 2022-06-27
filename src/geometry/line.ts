@@ -9,6 +9,9 @@ export class Line {
     get isFinite() {
         return this.start.isFinite && this.end.isFinite;
     }
+    get isNaN(){
+        return this.start.isNaN || this.end.isNaN;
+    }
 
     constructor(start: Point, end = start) {
         this.start = start;

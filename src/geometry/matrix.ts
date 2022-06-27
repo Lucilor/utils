@@ -21,7 +21,7 @@ type MatrixKey = "a" | "b" | "c" | "d" | "e" | "f";
 const matrixKeys: MatrixKey[] = ["a", "b", "c", "d", "e", "f"];
 const matrixValues: Record<MatrixKey, number> = {a: 1, b: 0, c: 0, d: 1, e: 0, f: 0};
 
-const getPoint = (source?: PointLike, defaultValue = 0) => {
+const getPoint = (source?: PointLike, defaultValue = 0): [number, number] => {
     let x = defaultValue;
     let y = defaultValue;
     if (typeof source === "number") {
@@ -49,7 +49,18 @@ export class Matrix {
     d = 1;
     e = 0;
     f = 0;
-    origin = [0, 0];
+    origin: [number, number] = [0, 0];
+
+    get isFinite() {
+        const {a, b, c, d, e, f} = this;
+        const [ox, oy] = this.origin;
+        return isFinite(a) && isFinite(b) && isFinite(c) && isFinite(d) && isFinite(e) && isFinite(f) && isFinite(ox) && isFinite(oy);
+    }
+    get isNaN() {
+        const {a, b, c, d, e, f} = this;
+        const [ox, oy] = this.origin;
+        return isNaN(a) || isNaN(b) || isNaN(c) || isNaN(d) || isNaN(e) || isNaN(f) || isNaN(ox) || isNaN(oy);
+    }
 
     constructor(source?: MatrixLike) {
         if (source) {
@@ -121,7 +132,7 @@ export class Matrix {
         return this;
     }
 
-    scale(): number[];
+    scale(): [number, number];
     scale(x: number, y?: number): this;
     scale(x?: number, y = x) {
         if (typeof x !== "number" || typeof y !== "number") {
@@ -132,7 +143,7 @@ export class Matrix {
         return this;
     }
 
-    translate(): number[];
+    translate(): [number, number];
     translate(x: number, y?: number): this;
     translate(x?: number, y = x) {
         if (typeof x !== "number" || typeof y !== "number") {
@@ -143,7 +154,7 @@ export class Matrix {
         return this;
     }
 
-    skew(): number[];
+    skew(): [number, number];
     skew(radX?: number, radY?: number): this;
     skew(radX?: number, radY = radX) {
         if (typeof radX !== "number" || typeof radY !== "number") {
