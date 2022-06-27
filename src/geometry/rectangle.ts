@@ -64,6 +64,9 @@ export class Rectangle {
     get isFinite() {
         return this.min.isFinite && this.max.isFinite;
     }
+    get isNaN() {
+        return this.min.isNaN || this.max.isNaN;
+    }
 
     constructor(min: PointLike = 0, max: PointLike = 0) {
         this.set(min, max);

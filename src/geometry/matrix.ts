@@ -51,6 +51,17 @@ export class Matrix {
     f = 0;
     origin: [number, number] = [0, 0];
 
+    get isFinite() {
+        const {a, b, c, d, e, f} = this;
+        const [ox, oy] = this.origin;
+        return isFinite(a) && isFinite(b) && isFinite(c) && isFinite(d) && isFinite(e) && isFinite(f) && isFinite(ox) && isFinite(oy);
+    }
+    get isNaN() {
+        const {a, b, c, d, e, f} = this;
+        const [ox, oy] = this.origin;
+        return isNaN(a) || isNaN(b) || isNaN(c) || isNaN(d) || isNaN(e) || isNaN(f) || isNaN(ox) || isNaN(oy);
+    }
+
     constructor(source?: MatrixLike) {
         if (source) {
             this.compose(source);

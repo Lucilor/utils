@@ -19,6 +19,16 @@ export class Arc {
             this.endAngle.isFinite
         );
     }
+    get isNaN() {
+        return (
+            this.center.isNaN ||
+            this.startPoint.isNaN ||
+            this.endPoint.isNaN ||
+            isNaN(this.radius) ||
+            this.startAngle.isNaN ||
+            this.endAngle.isNaN
+        );
+    }
 
     constructor(center = new Point(), radius?: number, start?: Angle | Point, end?: Angle | Point, clockwise = true) {
         this.center = center;

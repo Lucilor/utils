@@ -10,6 +10,9 @@ export class Point {
     get isFinite() {
         return isFinite(this.x) && isFinite(this.y);
     }
+    get isNaN(){
+        return isNaN(this.x) || isNaN(this.y);
+    }
 
     constructor(x?: number, y?: number);
     constructor(xy: PointLike);
