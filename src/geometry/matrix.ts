@@ -68,7 +68,7 @@ export class Matrix {
         }
     }
 
-    compose(source: MatrixLike) {
+    compose(source: MatrixLike = {}) {
         if (Array.isArray(source)) {
             matrixKeys.forEach((k, i) => {
                 this[k] = source[i] ?? matrixValues[k];

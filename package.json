@@ -1,6 +1,6 @@
 {
 	"name": "@lucilor/utils",
-	"version": "1.15.1",
+	"version": "1.15.2",
 	"description": "utils",
 	"main": "lib/index.js",
 	"files": [
@@ -29,13 +29,13 @@
 	"homepage": "https://github.com/Lucilor/utils#readme",
 	"packageManager": "yarn@3.2.0",
 	"devDependencies": {
-		"@types/lodash": "^4.14.182",
+		"@types/lodash": "^4.14.183",
 		"@types/md5": "^2.3.2",
-		"@typescript-eslint/eslint-plugin": "^5.33.0",
-		"@typescript-eslint/parser": "^5.33.0",
+		"@typescript-eslint/eslint-plugin": "^5.33.1",
+		"@typescript-eslint/parser": "^5.33.1",
 		"clean-webpack-plugin": "^4.0.0",
-		"eslint": "^8.21.0",
-		"terser-webpack-plugin": "^5.3.3",
+		"eslint": "^8.22.0",
+		"terser-webpack-plugin": "^5.3.5",
 		"ts-loader": "^9.3.1",
 		"typescript": "~4.7.4",
 		"webpack": "^5.74.0",
