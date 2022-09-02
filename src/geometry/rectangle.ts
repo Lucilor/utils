@@ -152,4 +152,11 @@ export class Rectangle {
         }
         return null;
     }
+
+    getPoint(tx: number, ty: number) {
+        const {left, bottom, width, height} = this;
+        const x = left + width * tx;
+        const y = bottom + height * ty;
+        return new Point(x, y);
+    }
 }

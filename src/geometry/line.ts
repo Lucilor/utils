@@ -9,7 +9,7 @@ export class Line {
     get isFinite() {
         return this.start.isFinite && this.end.isFinite;
     }
-    get isNaN(){
+    get isNaN() {
         return this.start.isNaN || this.end.isNaN;
     }
 
@@ -50,9 +50,7 @@ export class Line {
     }
 
     get middle() {
-        const {x: x1, y: y1} = this.start;
-        const {x: x2, y: y2} = this.end;
-        return new Point(x1 + x2, y1 + y2).multiply(0.5);
+        return this.getPoint(0.5);
     }
 
     get slope() {
@@ -151,6 +149,14 @@ export class Line {
         const p1 = this.end.clone().sub(this.start);
         const p2 = line.end.clone().sub(line.start);
         return p1.crossProduct(p2);
+    }
+
+    getPoint(t: number) {
+        const d = this.length * t;
+        const theta = this.theta.rad;
+        const dx = Math.cos(theta) * d;
+        const dy = Math.sin(theta) * d;
+        return this.start.clone().add(dx, dy);
     }
 }
 
