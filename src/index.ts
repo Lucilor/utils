@@ -12,6 +12,7 @@ export * from "./list-random";
 export * from "./log";
 export * from "./math";
 export * from "./misc";
+export * from "./object";
 export * from "./rsa";
 export * from "./storage";
 export * from "./types";
