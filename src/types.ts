@@ -9,4 +9,4 @@ export type ValueOf<T> = T[keyof T];
 
 export type Constructor<T = ObjectOf<unknown>> = new (...args: any[]) => T;
 
-export const keysOf = <T>(obj: T) => Object.keys(obj) as (keyof T)[];
+export const keysOf = <T extends ObjectOf<any>>(obj: T) => Object.keys(obj) as (keyof T)[];
