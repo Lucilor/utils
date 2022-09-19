@@ -1,20 +1,29 @@
 import {PointLike} from "./point";
 
 export interface MatrixParams {
+    a?: number;
+    b?: number;
+    c?: number;
+    d?: number;
+    e?: number;
+    f?: number;
+    translate?: PointLike;
+    scale?: PointLike;
+    skew?: PointLike;
+    rotate?: number;
+    origin?: PointLike;
+}
+
+export interface MatrixParamsRequired {
     a: number;
     b: number;
     c: number;
     d: number;
     e: number;
     f: number;
-    translate: PointLike;
-    scale: PointLike;
-    skew: PointLike;
-    rotate: number;
-    origin: PointLike;
 }
 
-export type MatrixLike = Matrix | number[] | Partial<MatrixParams>;
+export type MatrixLike = Matrix | number[] | MatrixParams;
 
 type MatrixKey = "a" | "b" | "c" | "d" | "e" | "f";
 
@@ -100,15 +109,10 @@ export class Matrix {
     }
 
     decompose() {
-        const result = {} as MatrixParams;
+        const result = {} as MatrixParamsRequired;
         matrixKeys.forEach((k) => {
             result[k] = this[k];
         });
-        result.origin = this.origin.slice();
-        result.rotate = this.rotate();
-        result.scale = this.scale();
-        result.skew = this.skew();
-        result.translate = this.translate();
         return result;
     }
 
