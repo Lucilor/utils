@@ -29,16 +29,12 @@ export class Timer {
 
     constructor(public logStyles?: Partial<CSSStyleDeclaration>) {}
 
-    private _getTimeString(name: string) {
-        const time = (this.now - this._pool[name]) / 1000;
-        return time.toFixed(this.fractionDigits) + "s";
-    }
-
     log(name: string, content: string) {
         if (content) {
             content += ": ";
         }
-        log(`${content}${this._getTimeString(name)}`, "Timer", this.logStyles);
+        const duration = this.getDuration(name) || 0;
+        log(`${content}${Timer.getDurationString(duration, this.fractionDigits)}`, "Timer", this.logStyles);
         return this;
     }
 
@@ -56,5 +52,30 @@ export class Timer {
         }
         delete this._pool[name];
         return this;
+    }
+
+    getStartTime(name: string) {
+        return this._pool[name] as number | undefined;
+    }
+
+    getDuration(name: string) {
+        const start = this.getStartTime(name);
+        if (typeof start !== "number") {
+            return undefined;
+        }
+        return this.now - start;
+    }
+
+    static getDurationString(duration: number, fractionDigits = 2) {
+        if (duration < 1000) {
+            return duration.toFixed(0) + "ms";
+        }
+        if (duration < 1000 * 60) {
+            return (duration / 1000).toFixed(fractionDigits) + "s";
+        }
+        if (duration < 1000 * 60 * 60) {
+            return (duration / 1000 / 60).toFixed(fractionDigits) + "min";
+        }
+        return (duration / 1000 / 60 / 60).toFixed(fractionDigits) + "h";
     }
 }
