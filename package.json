@@ -31,8 +31,8 @@
 	"devDependencies": {
 		"@types/lodash": "^4.14.186",
 		"@types/md5": "^2.3.2",
-		"@typescript-eslint/eslint-plugin": "^5.40.0",
-		"@typescript-eslint/parser": "^5.40.0",
+		"@typescript-eslint/eslint-plugin": "^5.40.1",
+		"@typescript-eslint/parser": "^5.40.1",
 		"clean-webpack-plugin": "^4.0.0",
 		"eslint": "^8.25.0",
 		"terser-webpack-plugin": "^5.3.6",
