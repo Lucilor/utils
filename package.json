@@ -29,12 +29,12 @@
 	"homepage": "https://github.com/Lucilor/utils#readme",
 	"packageManager": "yarn@3.2.4",
 	"devDependencies": {
-		"@types/lodash": "^4.14.186",
+		"@types/lodash": "^4.14.188",
 		"@types/md5": "^2.3.2",
-		"@typescript-eslint/eslint-plugin": "^5.40.1",
-		"@typescript-eslint/parser": "^5.40.1",
+		"@typescript-eslint/eslint-plugin": "^5.42.0",
+		"@typescript-eslint/parser": "^5.42.0",
 		"clean-webpack-plugin": "^4.0.0",
-		"eslint": "^8.25.0",
+		"eslint": "^8.27.0",
 		"terser-webpack-plugin": "^5.3.6",
 		"ts-loader": "^9.4.1",
 		"typescript": "~4.8.4",
@@ -45,7 +45,7 @@
 	},
 	"dependencies": {
 		"expr-eval": "^2.0.2",
-		"jsencrypt": "^3.2.1",
+		"jsencrypt": "^3.3.1",
 		"lodash": "^4.17.21",
 		"md5": "^2.3.0"
 	}
