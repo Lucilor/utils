@@ -24,3 +24,5 @@ export const isBetween = (n: number, min: number, max: number, eq = true, tolera
         return n > min && n < max;
     }
 };
+
+export const isNumber = (n: any) => typeof n === "number" && !isNaN(n);
