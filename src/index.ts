@@ -16,4 +16,5 @@ export * from "./object";
 export * from "./rsa";
 export * from "./storage";
 export * from "./types";
+export * from "./window-message-manager";
 export * from "./ui";
