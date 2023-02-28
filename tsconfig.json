@@ -1,18 +1,18 @@
 {
-    "compilerOptions": {
-        "baseUrl": "./",
-        "outDir": "./lib/",
-        "forceConsistentCasingInFileNames": true,
-        "sourceMap": true,
-        "strict": true,
-        "module": "commonjs",
-        "target": "es5",
-        "jsx": "react",
-        "allowJs": true,
-        "allowSyntheticDefaultImports": true,
-        "declaration": true,
-        "lib": ["esnext", "dom"],
-        "esModuleInterop": true
-    },
-    "include": ["src/**/*"]
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./lib/",
+    "forceConsistentCasingInFileNames": true,
+    "sourceMap": true,
+    "strict": true,
+    "module": "commonjs",
+    "target": "ES2020",
+    "jsx": "react",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "lib": ["esnext", "dom"],
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*"]
 }
