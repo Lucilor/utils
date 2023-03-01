@@ -37,6 +37,12 @@ export class WindowMessageManager extends EventEmitter {
     this.win?.postMessage(message, "*");
   }
 
+  waitForMessage<T = any>(action: string) {
+    return new Promise<T>((resolve) => {
+      this.once(action, resolve);
+    });
+  }
+
   destroy() {
     window.removeEventListener("message", this._onMessage);
   }
