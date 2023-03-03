@@ -34,6 +34,7 @@ export class WindowMessageManager extends EventEmitter {
 
   postMessage(action: string, data?: any) {
     const message: MessageData = {type: this.messageType, action, data};
+    this.emit(action, data);
     this.win?.postMessage(message, "*");
   }
 
