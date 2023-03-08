@@ -46,6 +46,7 @@ export class WindowMessageManager extends EventEmitter {
 
   destroy() {
     window.removeEventListener("message", this._onMessage);
+    this.removeAllListeners();
   }
 }
 
