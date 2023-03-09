@@ -1,8 +1,12 @@
 const isNode = typeof process !== "undefined" && process.versions && process.versions.node;
 if (isNode) {
   // nodejs
-  global.navigator = {appName: "nodejs"} as any;
-  global.window = {} as any;
+  if (!global.navigator) {
+    global.navigator = {appName: "nodejs"} as any;
+  }
+  if (!global.window) {
+    global.window = {} as any;
+  }
 }
 
 export * from "./files";
