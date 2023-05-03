@@ -1,5 +1,5 @@
-import {cloneDeep, isEmpty, isEqual} from "lodash";
 import {ObjectOf} from "./types";
+import {cloneDeep, isEmpty, isEqual} from "lodash";
 
 export const isObject = (obj: any) => typeof obj === "object" && obj !== null && !Array.isArray(obj);
 

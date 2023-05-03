@@ -1,7 +1,7 @@
-import {Point} from "./point";
-import {DEFAULT_TOLERANCE, isBetween, isNearZero} from "./numbers";
 import {Angle} from "./angle";
 import {MatrixLike} from "./matrix";
+import {DEFAULT_TOLERANCE, isBetween, isNearZero} from "./numbers";
+import {Point} from "./point";
 
 export class Line {
   start: Point;

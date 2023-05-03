@@ -1,6 +1,6 @@
 import {Line} from "..";
-import {DEFAULT_TOLERANCE} from "./numbers";
 import {Matrix, MatrixLike} from "./matrix";
+import {DEFAULT_TOLERANCE} from "./numbers";
 
 export type PointLike = number | number[] | {x: number; y: number};
 

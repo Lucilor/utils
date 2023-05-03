@@ -1,6 +1,6 @@
+import {ObjectOf} from "../types";
 import {Parser} from "expr-eval";
 import md5 from "md5";
-import {ObjectOf} from "../types";
 
 export const fibonacci = (n: number) => {
   const sqrt5 = Math.sqrt(5);
