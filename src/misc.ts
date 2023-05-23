@@ -60,3 +60,16 @@ export const levenshtein = (a: string, b: string): number => {
 
   return matrix[b.length][a.length];
 };
+
+export const getTypeOf = (value: any) => {
+  const type = typeof value;
+  if (type === "object") {
+    if (value === null) {
+      return "null";
+    }
+    if (Array.isArray(value)) {
+      return "array";
+    }
+  }
+  return type;
+};
