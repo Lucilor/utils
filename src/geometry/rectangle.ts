@@ -1,6 +1,6 @@
-import {Point, PointLike} from "./point";
 import {Line} from "./line";
 import {MatrixLike} from "./matrix";
+import {Point, PointLike} from "./point";
 
 export type RectLike = {min: PointLike; max: PointLike};
 

@@ -1,7 +1,7 @@
-import {Point} from "./point";
 import {Angle} from "./angle";
 import {Line} from "./line";
 import {Matrix, MatrixLike} from "./matrix";
+import {Point} from "./point";
 
 export class Arc {
   center: Point;
