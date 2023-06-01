@@ -71,5 +71,8 @@ export const getTypeOf = (value: any) => {
       return "array";
     }
   }
+  if (type === "number" && isNaN(value)) {
+    return "NaN";
+  }
   return type;
 };
