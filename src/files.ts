@@ -43,3 +43,16 @@ export const getFileSize = (raw: number, options: {inputUnit?: FileSizeUnit; out
     return `${raw.toFixed(fractionDigits)}${fileSizeArray[index]}`;
   }
 };
+
+export const selectFiles = (opts?: {multiple?: boolean; accept?: string}) => {
+  return new Promise<FileList | null>((resolve) => {
+    const input = document.createElement("input");
+    input.type = "file";
+    input.multiple = opts?.multiple ?? false;
+    input.accept = opts?.accept ?? "";
+    input.addEventListener("change", () => {
+      resolve(input.files);
+    });
+    input.click();
+  });
+};
