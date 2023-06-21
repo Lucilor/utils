@@ -311,6 +311,7 @@ __metadata:
     jsencrypt: ^3.3.2
     lodash: ^4.17.21
     md5: ^2.3.0
+    pinyin-pro: ^3.15.2
     prettier: ^2.8.8
     terser-webpack-plugin: ^5.3.9
     ts-loader: ^9.4.3
@@ -2264,6 +2265,20 @@ __metadata:
   version: 2.0.4
   resolution: "pinkie@npm:2.0.4"
   checksum: b12b10afea1177595aab036fc220785488f67b4b0fc49e7a27979472592e971614fa1c728e63ad3e7eb748b4ec3c3dbd780819331dad6f7d635c77c10537b9db
+  languageName: node
+  linkType: hard
+
+"pinyin-pro@npm:3.15.2":
+  version: 3.15.2
+  resolution: "pinyin-pro@npm:3.15.2"
+  checksum: 8db83a059c41019c9861bb0a943010ba61632e248b8f0143f1c15094ed59ccf85ab0a37167200b0175e53117feb31ce7aad89cb9c36becffdb5683f6fcd8de8c
+  languageName: node
+  linkType: hard
+
+"pinyin-pro@patch:pinyin-pro@npm%3A3.15.2#./.yarn/patches/pinyin-pro-npm-3.15.2-4382df4ac2.patch::locator=%40lucilor%2Futils%40workspace%3A.":
+  version: 3.15.2
+  resolution: "pinyin-pro@patch:pinyin-pro@npm%3A3.15.2#./.yarn/patches/pinyin-pro-npm-3.15.2-4382df4ac2.patch::version=3.15.2&hash=61c74b&locator=%40lucilor%2Futils%40workspace%3A."
+  checksum: 60298fedeaaea16fcd22e4a342a945b390eb6b378f19212c79d240f2e1ae57a174385dd11dcda6cfbbc86670b4263fc7d33aa704dfabba812ceed575bc7dbb58
   languageName: node
   linkType: hard
 

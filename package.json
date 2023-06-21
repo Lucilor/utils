@@ -1,6 +1,6 @@
 {
   "name": "@lucilor/utils",
-  "version": "1.19.1",
+  "version": "1.20.0",
   "description": "utils",
   "main": "lib/index.js",
   "files": [
@@ -57,6 +57,10 @@
     "expr-eval": "^2.0.2",
     "jsencrypt": "^3.3.2",
     "lodash": "^4.17.21",
-    "md5": "^2.3.0"
+    "md5": "^2.3.0",
+    "pinyin-pro": "^3.15.2"
+  },
+  "resolutions": {
+    "pinyin-pro@^3.15.2": "patch:pinyin-pro@npm%3A3.15.2#./.yarn/patches/pinyin-pro-npm-3.15.2-4382df4ac2.patch"
   }
 }
