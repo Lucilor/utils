@@ -1,0 +1,89 @@
+diff --git a/.vscode/settings.json b/.vscode/settings.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..7c2feb7ef4731d430facfcafcbac59e3ea861849
+--- /dev/null
++++ b/.vscode/settings.json
+@@ -0,0 +1,3 @@
++{
++  "editor.formatOnSave": false
++}
+diff --git a/types/core/pinyin/handle.d.ts b/types/core/pinyin/handle.d.ts
+index 242fc8a4ee7369ad3840d322df0f0d675eb19946..a73539bebfea99f8bef0a6cbd5a3719e8d31855f 100644
+--- a/types/core/pinyin/handle.d.ts
++++ b/types/core/pinyin/handle.d.ts
+@@ -1,4 +1,4 @@
+-import { SingleWordResult, PinyinMode } from '@/common/type';
++import { SingleWordResult, PinyinMode } from '../../common/type';
+ export declare const getPinyin: (word: string, list: SingleWordResult[], mode: 'normal' | 'surname') => SingleWordResult[];
+ /**
+  * @description: 将带音调符号拼音转换为不带音调拼音
+diff --git a/types/core/pinyin/middlewares.d.ts b/types/core/pinyin/middlewares.d.ts
+index dccc2420444b9a4a009e117fb3af4ff7057717d7..38f5e00176d68532b17f571ab4728850b78528f3 100644
+--- a/types/core/pinyin/middlewares.d.ts
++++ b/types/core/pinyin/middlewares.d.ts
+@@ -1,4 +1,4 @@
+-import { SingleWordResult } from '@/common/type';
++import { SingleWordResult } from '../../common/type';
+ import { CompleteOptions } from './index';
+ export declare const validateType: (word: unknown) => boolean;
+ export declare const middleWareNonZh: (list: SingleWordResult[], options: CompleteOptions) => SingleWordResult[];
+diff --git a/types/core/polyphonic/index.d.ts b/types/core/polyphonic/index.d.ts
+index ef70203b2ba687395fa2aafcd3e88a7fc4f4fd2d..4eb97a70c31bd368b610a43779fba4a5b6d47eba 100644
+--- a/types/core/polyphonic/index.d.ts
++++ b/types/core/polyphonic/index.d.ts
+@@ -1,4 +1,4 @@
+-import { SingleWordResult } from '@/common/type';
++import { SingleWordResult } from '../../common/type';
+ interface BasicOptions {
+     /**
+      * @description 返回的拼音音调类型
+diff --git a/types/data/dict2.d.ts b/types/data/dict2.d.ts
+index 388e95bfdae42aadf14897ccf29fa506e473bdc3..e29f065a647d5c059fa6a3820e474ceacfc434d3 100644
+--- a/types/data/dict2.d.ts
++++ b/types/data/dict2.d.ts
+@@ -1,4 +1,4 @@
+-import type { Pattern } from '@/common/ac';
++import type { Pattern } from '../common/ac';
+ declare const DICT2: {
+     [prop: string]: string;
+ };
+diff --git a/types/data/dict3.d.ts b/types/data/dict3.d.ts
+index 4f5d2df58a03ee4f9fd8e2b2a3e739693074f641..89c6eb301bf6788a359cbe929b5c2d4058d5dcfe 100644
+--- a/types/data/dict3.d.ts
++++ b/types/data/dict3.d.ts
+@@ -1,4 +1,4 @@
+-import type { Pattern } from '@/common/ac';
++import type { Pattern } from '../common/ac';
+ declare const DICT3: {
+     [prop: string]: string;
+ };
+diff --git a/types/data/dict4.d.ts b/types/data/dict4.d.ts
+index f6c2a877440595e28d7de7bec1d0c756a157cafa..93632069193c3811f2e4163ce1249d7f79e8f1aa 100644
+--- a/types/data/dict4.d.ts
++++ b/types/data/dict4.d.ts
+@@ -1,4 +1,4 @@
+-import type { Pattern } from '@/common/ac';
++import type { Pattern } from '../common/ac';
+ declare const DICT4: {
+     [prop: string]: string;
+ };
+diff --git a/types/data/dict5.d.ts b/types/data/dict5.d.ts
+index 7d86cdf727c88be09d323b8ca63b52a82cf3fee5..622d8680ef3c99cb9c74682c2dda538581bbaec3 100644
+--- a/types/data/dict5.d.ts
++++ b/types/data/dict5.d.ts
+@@ -1,4 +1,4 @@
+-import type { Pattern } from '@/common/ac';
++import type { Pattern } from '../common/ac';
+ declare const DICT5: {
+     [prop: string]: string;
+ };
+diff --git a/types/data/surname.d.ts b/types/data/surname.d.ts
+index ebc3e8e11e11778a81dd90c843aed7840c274a80..195db28f45363cd1ad8f7011d082d3f35e1458f9 100644
+--- a/types/data/surname.d.ts
++++ b/types/data/surname.d.ts
+@@ -1,4 +1,4 @@
+-import type { Pattern } from '@/common/ac';
++import type { Pattern } from '../common/ac';
+ declare const Surnames: {
+     [key: string]: string;
+ };

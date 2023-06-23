@@ -25,7 +25,6 @@ export const queryString = (needle: string, haystack: string) => {
   };
   return isIncluded(haystackLower) || isIncluded(haystackPinyin);
 };
-(window as any).queryString = queryString;
 
 export const queryStringList = (needle: string, haystacks: string[]) => {
   return haystacks.some((haystack) => queryString(needle, haystack));
