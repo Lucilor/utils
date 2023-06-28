@@ -20,3 +20,11 @@ export const getImageDataUrl = (img: HTMLImageElement) => {
   ctx.drawImage(img, 0, 0);
   return canvas.toDataURL();
 };
+
+export const svgToBase64 = (svg: SVGElement) => {
+  let str = new XMLSerializer().serializeToString(svg);
+  // FIXME: window.unescape is deprecated
+  // eslint-disable-next-line deprecation/deprecation
+  str = unescape(encodeURIComponent(str));
+  return "data:image/svg+xml;base64," + window.btoa(str);
+};
