@@ -10,6 +10,9 @@ export const getPinyinCompact = (str: string, toneType: ToneType = "none") => {
 };
 
 export const queryString = (needle: string, haystack: string) => {
+  if (!needle) {
+    return true;
+  }
   const needleLower = needle.toLowerCase();
   const haystackLower = haystack.toLowerCase();
   const haystackPinyin = getPinyinCompact(haystackLower);
