@@ -18,6 +18,9 @@ export class Rectangle {
     }
     return rect;
   }
+  static fromDomRect({left, top, right, bottom}: DOMRect) {
+    return new Rectangle([left, top], [right, bottom]);
+  }
 
   min = new Point();
   max = new Point();
