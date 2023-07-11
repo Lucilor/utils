@@ -1,4 +1,5 @@
 import {EventEmitter} from "events";
+import {getTypeOf} from "./misc";
 
 export class WindowMessageManager extends EventEmitter {
   constructor(public messageType: string, public instance: any, public win?: Window | null) {
@@ -9,7 +10,7 @@ export class WindowMessageManager extends EventEmitter {
   private _onMessage = (async (event: MessageEvent) => {
     const data: MessageData = event.data;
     const {messageType, instance, win} = this;
-    if (!data || typeof data !== "object" || data.type !== messageType) {
+    if (!data || getTypeOf(data) !== "object" || data.type !== messageType) {
       return;
     }
     if (!instance || typeof instance !== "object") {
