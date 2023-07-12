@@ -28,26 +28,26 @@
     "url": "https://github.com/Lucilor/utils/issues"
   },
   "homepage": "https://github.com/Lucilor/utils#readme",
-  "packageManager": "yarn@3.6.0",
+  "packageManager": "yarn@3.6.1",
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/events": "^3.0.0",
     "@types/lodash": "^4.14.195",
     "@types/md5": "^2.3.2",
-    "@types/node": "^18.16.18",
+    "@types/node": "^18.16.19",
     "@types/prettier": "^2.7.3",
-    "@typescript-eslint/eslint-plugin": "^5.59.11",
-    "@typescript-eslint/parser": "^5.59.11",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
     "clean-webpack-plugin": "^4.0.0",
-    "eslint": "^8.42.0",
+    "eslint": "^8.44.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-deprecation": "^1.4.1",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.8",
     "terser-webpack-plugin": "^5.3.9",
-    "ts-loader": "^9.4.3",
-    "typescript": "~5.0.4",
-    "webpack": "^5.87.0",
+    "ts-loader": "^9.4.4",
+    "typescript": "~5.1.6",
+    "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
     "webpack-merge": "^5.9.0",
     "webpack-node-externals": "^3.0.0"
@@ -58,7 +58,7 @@
     "jsencrypt": "^3.3.2",
     "lodash": "^4.17.21",
     "md5": "^2.3.0",
-    "pinyin-pro": "^3.15.2"
+    "pinyin-pro": "^3.15.4"
   },
   "resolutions": {
     "pinyin-pro@^3.15.2": "patch:pinyin-pro@npm%3A3.15.2#./.yarn/patches/pinyin-pro-npm-3.15.2-4382df4ac2.patch"
