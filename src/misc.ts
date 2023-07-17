@@ -38,3 +38,11 @@ export const getTypeOf = (value: any) => {
   }
   return type;
 };
+
+export const isTypeOf = (value: any, type: ReturnType<typeof getTypeOf> | ReturnType<typeof getTypeOf>[]) => {
+  const valueType = getTypeOf(value);
+  if (Array.isArray(type)) {
+    return type.includes(valueType);
+  }
+  return valueType === type;
+};
