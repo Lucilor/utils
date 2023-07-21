@@ -16,9 +16,6 @@ export const queryString = (needle: string, haystack: string) => {
   const needleLower = needle.toLowerCase();
   const haystackLower = haystack.toLowerCase();
   const haystackPinyin = getPinyinCompact(haystackLower);
-  if (/^[a-z0-9]$/.test(needleLower)) {
-    return haystackLower.startsWith(needleLower) || haystackPinyin.startsWith(needleLower);
-  }
   const isIncluded = (haystack2: string) => {
     if (haystack2.includes(needleLower)) {
       return true;
