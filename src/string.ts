@@ -20,11 +20,19 @@ export const queryString = (needle: string, haystack: string) => {
     if (haystack2.includes(needleLower)) {
       return true;
     }
-    const reg = new RegExp(needleLower.split("").join(".*"));
-    return reg.test(haystack2);
+    let j = -1;
+    for (const char of needleLower) {
+      const index = haystack2.indexOf(char, j);
+      if (index < 0) {
+        return false;
+      }
+      j = index + 1;
+    }
+    return true;
   };
   return isIncluded(haystackLower) || isIncluded(haystackPinyin);
 };
+(window as any).q = queryString;
 
 export const queryStringList = (needle: string, haystacks: string[]) => {
   return haystacks.some((haystack) => queryString(needle, haystack));
